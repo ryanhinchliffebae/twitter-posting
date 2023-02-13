@@ -6,8 +6,10 @@ import PostTwitterButton from "./components/PostTwitterButton/PostTwitterButton"
 function App() {
   return (
     <div className="App">
-      <PostTwitterInput> </PostTwitterInput>
-        <PostTwitterButton></PostTwitterButton>
+        <div className="post-tweet-section">
+            <PostTwitterInput> </PostTwitterInput>
+            <PostTwitterButton></PostTwitterButton>
+        </div>
     </div>
   );
 }
