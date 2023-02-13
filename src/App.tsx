@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import {Button} from "@mui/material";
+import PostTwitterInput from "./components/PostTwitterInput/PostTwitterInput";
 
 function App() {
   return (
     <div className="App">
-      <Button variant="contained">Hello World</Button>
+      <PostTwitterInput> </PostTwitterInput>
     </div>
   );
 }
