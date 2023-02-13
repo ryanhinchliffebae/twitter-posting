@@ -20,7 +20,6 @@ const PostTwitterInput: FC<IPostTwitterInput> = () => {
                         </InputAdornment>
                     ),
                 }}
-                type="search"
                 variant="standard"
             />
         </div>
