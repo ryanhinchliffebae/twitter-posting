@@ -1,14 +1,23 @@
-import React, {FC} from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import styles from "./PostTwitterInput.module.scss";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import {Twitter} from "@mui/icons-material";
+import {useAppDispatch} from "../../redux/hooks";
+import {updateInput} from "../../redux/inputSlice";
 
 interface IPostTwitterInput {
 
 }
 
 const PostTwitterInput: FC<IPostTwitterInput> = () => {
+
+    const dispatch = useAppDispatch();
+    function handleChange(event: ChangeEvent) {
+        const target = (event.target as HTMLInputElement);
+        dispatch(updateInput(target.value))
+    }
+
     return (
         <div className={styles.PostTwitterInput} data-testid="PostTwitterInput">
             <TextField
@@ -23,6 +32,7 @@ const PostTwitterInput: FC<IPostTwitterInput> = () => {
                     ),
                 }}
                 variant="standard"
+                onChange={handleChange}
             />
         </div>
     );
