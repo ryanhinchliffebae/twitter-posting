@@ -1,9 +1,9 @@
-import React, {ChangeEvent, FC} from 'react';
+import React, {ChangeEvent, FC, useEffect, useState} from 'react';
 import styles from "./PostTwitterInput.module.scss";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import {Twitter} from "@mui/icons-material";
-import {useAppDispatch} from "../../redux/hooks";
+import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {updateInput} from "../../redux/inputSlice";
 
 interface IPostTwitterInput {
@@ -13,10 +13,19 @@ interface IPostTwitterInput {
 const PostTwitterInput: FC<IPostTwitterInput> = () => {
 
     const dispatch = useAppDispatch();
+    const tweet = useAppSelector((state) => state.input.value );
+    const [value, setValue] = useState(tweet);
+
     function handleChange(event: ChangeEvent) {
         const target = (event.target as HTMLInputElement);
+        setValue(target.value)
         dispatch(updateInput(target.value))
     }
+
+    useEffect(() => {
+        if(!tweet) setValue('');
+    }, [tweet]);
+
 
     return (
         <div className={styles.PostTwitterInput} data-testid="PostTwitterInput">
@@ -24,6 +33,7 @@ const PostTwitterInput: FC<IPostTwitterInput> = () => {
                 id="input-for-twitter-search"
                 label="Tweet"
                 placeholder="It's AMAZING !!!"
+                value={value}
                 InputProps={{
                     startAdornment: (
                         <InputAdornment position="start">

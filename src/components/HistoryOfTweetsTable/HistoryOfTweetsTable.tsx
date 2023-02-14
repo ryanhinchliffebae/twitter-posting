@@ -16,7 +16,6 @@ interface IHistoryOfTweetsTable {
 
 const HistoryOfTweetsTable: FC<IHistoryOfTweetsTable> = () => {
     const tweetTable = useAppSelector((state) => state.input.tweetTable );
-    console.log(tweetTable);
 
     return (
         <TableContainer component={Paper} className={styles.HistoryOfTweetsTable}>

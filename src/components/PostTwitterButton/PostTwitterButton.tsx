@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import styles from "./PostTwitterButton.module.scss";
 import {Button} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
-import {publishTweet} from "../../redux/inputSlice";
+import {publishTweet, updateInput} from "../../redux/inputSlice";
 
 interface IPostTwitterButton {
 
@@ -15,6 +15,7 @@ const PostTwitterButton: FC<IPostTwitterButton> = () => {
     function handleTweetButtonClick() {
         if(currentInput){
             dispatch(publishTweet());
+            dispatch(updateInput(''));
         }
     }
 
