@@ -1,11 +1,19 @@
 import React from 'react';
 import './App.css';
-import {Button} from "@mui/material";
+import PostTwitterInput from "./components/PostTwitterInput/PostTwitterInput";
+import PostTwitterButton from "./components/PostTwitterButton/PostTwitterButton";
+import HistoryOfTweetsTable from "./components/HistoryOfTweetsTable/HistoryOfTweetsTable";
 
 function App() {
+
   return (
     <div className="App">
-      <Button variant="contained">Hello World</Button>
+        <div className="post-tweet-section">
+            <PostTwitterInput> </PostTwitterInput>
+            <PostTwitterButton></PostTwitterButton>
+        </div>
+
+        <HistoryOfTweetsTable></HistoryOfTweetsTable>
     </div>
   );
 }
