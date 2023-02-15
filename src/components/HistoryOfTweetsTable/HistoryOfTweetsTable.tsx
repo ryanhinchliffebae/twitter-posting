@@ -7,7 +7,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import {useAppSelector} from "../../redux/hooks";
 
 
 interface IHistoryOfTweetsTable {
@@ -15,7 +14,21 @@ interface IHistoryOfTweetsTable {
 }
 
 const HistoryOfTweetsTable: FC<IHistoryOfTweetsTable> = () => {
-    const tweetTable = useAppSelector((state) => state.input.tweetTable );
+    // const tweetTable = useAppSelector((state) => state.input.tweetTable );
+    const tweetTable = [
+        {
+            tweetId: 0,
+            tweet: 'first'
+        },
+        {
+            tweetId: 1,
+            tweet: 'second'
+        },
+        {
+            tweetId: 2,
+            tweet: 'third'
+        }
+    ];
 
     return (
         <TableContainer component={Paper} className={styles.HistoryOfTweetsTable}>
